@@ -59,7 +59,7 @@ $(document).on("click", ".gif-btn", function(event) {
 	event.preventDefault();
 	$("#image_container").empty();
 	var query = $(this).attr("data_fail");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         query + "&api_key=dc6zaTOxFJmzC&limit=12"
     $.ajax({
     	url: queryURL,
