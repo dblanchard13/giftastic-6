@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Assignment 6 - Giftastic">
     <meta name="author" content="Alfonso Lopez">
+    <!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Tried to use another pre-made framework in addition to Bootstrap -->
 	<link rel="stylesheet" href="http://smakosh.com/unnamed.css">
+	<!-- I didn't actually use this this time -->
 	<link rel="stylesheet" type="text/css" src = "assets/style.css">
 
 </head>
@@ -18,8 +21,8 @@
 	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
 		<div class="pull-right" id="search-box">
 			<form class="form-inline my-2 my-lg-0">
-	          <input class="form-control mr-sm-2" type="text" id="topic-input" placeholder="Add a topic">
-	          <button class="btn btn-outline-success my-2 my-sm-0" id="topic-search" type="submit">Search</button>
+	          <input class="form-control mr-sm-2" type="text" id="topic-input" placeholder="Search for failure">
+	          <button class="btn btn-outline-success btn-rounded gradient-orange my-2 my-sm-0" id="topic-search" type="submit">Add Failure</button>
 	        </form>
         </div>
 	</nav> <!-- /Navbar -->
@@ -27,15 +30,15 @@
 
 	<!-- Container -->
 	<div class="container">
-		<!-- Topics -->
+		<!-- Topics to be appeded here below the jumbotron -->
 		<div class="row">
-			<h1 class='jumbotron text-center'>So many ways to fail</h1>
+			<h1 class='jumbotron text-center'>So many ways to fail<br>Select your failure below, then click an image.</h1>
 			<div class="col-md-12" id="topics"></div>
 
 		</div>
 		<!-- images appear here -->
 		<div class="row">
-			<div class="col-md-12 container" id="image_container"></div>
+			<div class="col-md-12" id="image_container"></div>
 		</div>		
 	</div> <!-- /.container -->
 
