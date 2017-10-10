@@ -1,3 +1,8 @@
+// You should try to get in the habit of wrapping your JS code inside document.ready blocks
+// or an IIFE (Immediately Invoked Function Expression) so as to prevent your variables from
+// implicitly being placed on the global scope. - this is mainly an issue because it becomes
+// much more likely that you'll have variable collisions.
+
 /*Variables*/
 
 /*Default list of strings to populate the page on load*/
@@ -34,11 +39,19 @@ to the string and add it  to the topic_list. The topicButtons function is then
 called.*/
 
 $(document).on('click', '#topic-search', function(event) {
+  // This if condition will never be true since the topic-input is
+  // in the html on page load and you never remove it. I think you
+  // were meaning to check if the user had actually typed some text
+  // in the input to prevent blank buttons from being created -
+  // and for that case you'd want this if to check if 
+  // `$("#topic-input").val().trim()` was a false-y value (eg empty string, null, or undefined).
 	if($("topic-input") === null) {
 		return
 	}
 	else {
 		var userInput = $("#topic-input").val().trim();
+    // I think you'd actually want this preventDefault to run
+    //  regardless of the value of topic-input.
 		event.preventDefault();
 
 		userInput = toTitleCase(userInput);
@@ -56,7 +69,10 @@ separate callback function. The image is appended to the card div and displayed.
 3 card divs are appended to a row before anew row is added to the image-container 
 div.*/
 $(document).on("click", ".gif-btn", function(event) {
-	event.preventDefault();
+  // You actually don't need to call preventDefault here. The only reason you
+  // need it in the handler above is due to that button being the submit action
+  // for a form. And form's default submit action causes the page to reload.
+	// event.preventDefault();
 	$("#image_container").empty();
 	var query = $(this).attr("data_fail");
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -66,7 +82,8 @@ $(document).on("click", ".gif-btn", function(event) {
     	method: "GET"
     	}).done(function(response) {
     		var results = response.data;
-    		console.log(response);
+        // Best to keep console.log statements out of your production code.
+    		// console.log(response);
     		var count = 0;
     		for(var i=0; i<results.length/3; i++) {
     			$("#image_container").append($("<div class='row'>"));
